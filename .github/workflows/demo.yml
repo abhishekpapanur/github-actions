@@ -1,0 +1,22 @@
+name: DevOps Github Actions Demo
+
+on: push
+
+jobs:
+  demo:
+    name: Github actions Demo
+    runs-on: ubuntu-latest
+
+    steps: 
+      - uses: actions/checkout@v2
+
+      - name: Check the file
+        run: ls -lrt
+
+      - uses: actions/setup-java@v3
+        with:
+         distribution: 'temurin' # See 'Supported distributions' for available options
+         java-version: '17'
+    
+      - name: Check Java version 
+        run: java --version
